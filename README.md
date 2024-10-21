@@ -1,7 +1,5 @@
 # ClientModeus
 
-## Проект создан для автоматического формирования расписания Клуба Информационной Безопасности (КИБ) САФУ, используя информацию с `Modeus`
-
 <!--Блок информации о репозитории в бейджах-->
 ![Static Badge](https://img.shields.io/badge/On1onss-ClientModeus-ClientModeus)
 ![GitHub top language](https://img.shields.io/github/languages/top/On1onss/ClientModeus)
