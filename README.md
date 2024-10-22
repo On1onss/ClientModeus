@@ -9,15 +9,29 @@
 
 ### ToDo:
 - [x] Получение токена Modeus
-- [ ] Дописать `README.md`
-- [ ] Реализовать формирование графика в табличном ввиде
-- [ ] Формировать таблицу с учетом свободного времени ответственных людей
-- [ ] Добавить возможность изменять ответственных людей
-- [ ] Добавить пункты в ToDo
+- [x] Дописать `README.md`
+- [ ] Определить типы
+- [ ] Добавить получение расписания на один день
+- [ ] Добавить получение расписания на неделю
 
 <!--Установка-->
 ## Установка
-`Этап установки`
+
+```Shell
+git clone https://github.com/On1onss/ClientModeus.git
+cd ClientModeus
+
+touch .env
+nano .env
+```
+
+```Shell
+# .env
+LOGIN = "yourlogin@domain.com"
+PASSWORD = "Y0uR_p4S5w0rD"
+# example url
+URL = "https://example-auth.modeus.org/oauth2/authorize?client_id="
+```
 
 <!--Поддержка-->
 ## Поддержка
