@@ -31,6 +31,8 @@ LOGIN = "yourlogin@domain.com"
 PASSWORD = "Y0uR_p4S5w0rD"
 # example url
 URL = "https://example-auth.modeus.org/oauth2/authorize?client_id="
+# example api url
+URL_API = "https://foo.modeus.org/schedule-calendar-v2/api/"
 ```
 
 <!--Поддержка-->
