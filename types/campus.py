@@ -27,9 +27,26 @@ class Campus:
 
         persons = json.dumps(response["_embedded"]["rooms"], sort_keys=True, indent=4).encode().decode(
             'unicode-escape')
+        is_deletedAtUtc = False
+        for element in persons.split("\n"):
+            if "deletedAtUtc" in element:
+                is_deletedAtUtc = True
+            if '"id": ' in element and is_deletedAtUtc:
+                return element.split(": ")[1][1:-2:]
+
+    def get_address(self):
+        headers = {
+            "Authorization": self.token
+        }
+
+        payload = self.get_payload()
+        response = requests.post(self.url, headers=headers, json=payload).json()
+
+        persons = json.dumps(response["_embedded"]["rooms"], sort_keys=True, indent=4).encode().decode(
+            'unicode-escape')
 
         for element in persons.split("\n"):
-            if '"id": ' in element:
+            if '"address": ' in element:
                 return element.split(": ")[1][1:-2:]
 
     def get_name(self):
@@ -49,7 +66,22 @@ class Campus:
             if '"name": ' in element and is_deletedAtUtc:
                 return element.split(": ")[1][1:-2:]
 
-    # TODO: add get_nameShort, get_address(), check get_id()
+    def get_nameShort(self):
+        headers = {
+            "Authorization": self.token
+        }
+
+        payload = self.get_payload()
+        response = requests.post(self.url, headers=headers, json=payload).json()
+
+        persons = json.dumps(response["_embedded"]["rooms"], sort_keys=True, indent=4).encode().decode(
+            'unicode-escape')
+        is_deletedAtUtc = False
+        for element in persons.split("\n"):
+            if "deletedAtUtc" in element:
+                is_deletedAtUtc = True
+            if '"nameShort": ' in element and is_deletedAtUtc:
+                return element.split(": ")[1][1:-2:]
 
     def get_all(self):
         headers = {
@@ -63,4 +95,3 @@ class Campus:
             'unicode-escape')
 
         return all_info_person
-
